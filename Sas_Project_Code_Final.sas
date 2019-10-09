@@ -1,7 +1,7 @@
-libname sp 'C:\Users\sxs171332\Desktop\SAS Project';
+libname sp 'C:\Users\axs180034\Desktop\SAS Project';
 
 data sp.groc_store;
-infile 'C:\Users\sxs171332\Desktop\SAS Project/spagsauc_groc_1114_1165' dlm=' ' firstobs=2;
+infile 'C:\Users\axs180034\Desktop\SAS Project/spagsauc_groc_1114_1165' dlm=' ' firstobs=2;
 input IRI_KEY WEEK SY GE VEND ITEM UNITS DOLLARS F $ D PR;
 UPC=catx('-', put(SY,Z2.),put(GE,Z2.),put(VEND,Z5.),put(ITEM,Z5.));
 format DOLLARS dollar8.2;
@@ -10,12 +10,12 @@ run;
 
 /*Delivery Dataset  */
 data sp.delvstores;
-infile 'C:\Users\sxs171332\Desktop\SAS Project/Delivery_Stores' dlm=' ' firstobs=2;
+infile 'C:\Users\axs180034\Desktop\SAS Project/Delivery_Stores' dlm=' ' firstobs=2;
 input IRI_KEY OU$ EST_ACV MARKET_NAME$ 20. OPEN CLOSE MSKDNAME$;
 run;
 
 
-PROC IMPORT DATAFILE='C:\Users\sxs171332\Desktop\SAS Project/prod_sauce.xls'
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\SAS Project/prod_sauce.xls'
 	DBMS=XLS replace
 	OUT=sp.product;
 	GETNAMES=YES;
